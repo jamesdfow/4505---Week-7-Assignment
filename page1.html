@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="styles.css" />
+    <title>jQuery Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="favoriteAnimal">
+      <h1>My Favorite Animal</h1>
+      <button id="showImage">Click for my favorite animal!</button>
+      <img
+        id="animalImage"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/480px-Koala_climbing_tree.jpg"
+        alt="Animal"
+        style="display: none; width: 300px" />
+    </div>
+    <div class="funFacts">
+      <h2>Fun Facts</h2>
+      <button id="factButton">Click for Koala Fact</button>
+      <p
+        id="fact"
+        style="display: none">
+        Koalas are endangered
+      </p>
+    </div>
+    <!-- <p id="toggleFacts">Koalas are endangered.</p> -->
+    <div class="interactiveSection">
+      <h2>Interactive Section</h2>
+      <p id="hoverText">Hover over this with your pointer.</p>
+    </div>
+    <div class="commentSectionContainer">
+      <h2>Leave a comment!</h2>
+      <input
+        type="text"
+        id="userComment"
+        placeholder="Comment here!" />
+      <button id="submitComment">Submit</button>
+      <div
+        class="submittedComment"
+        id="commentSection"></div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $("#factButton").click(function () {
+          $("#fact").toggle();
+        });
+        $("#showImage").click(function () {
+          $("#animalImage").fadeIn();
+        });
+        $("#toggleFacts").click(function () {
+          $("#factBox").slideToggle();
+        });
+        $("#hoverText").hover(
+          function () {
+            $(this).text("Koalas are endangered!");
+          },
+          function () {
+            $(this).text("Hover over me for a surprise!");
+          }
+        );
+        $("#submitComment").click(function () {
+          let comment = $("#userComment").val();
+          if (comment !== "") {
+            $("#commentSection").append("<p>" + comment + "</p>");
+            $("#userComment").val("");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
