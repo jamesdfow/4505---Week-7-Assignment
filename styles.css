@@ -30,15 +30,6 @@ body {
   overflow: hidden;
 }
 
-#hoverText {
-  transition: color 1s ease-in-out, transform 1s ease-in-out;
-}
-
-#hoverText:hover {
-  color: rgb(59, 138, 72);
-  transform: scale(1.1);
-}
-
 button {
   width: fit-content;
   height: 30px;
